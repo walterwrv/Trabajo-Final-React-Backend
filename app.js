@@ -10,7 +10,7 @@ const app = express();
 
 // Middlewares
 // app.use(cors());
-app.use(cors({ origin: 'http://localhost:5173' })); // ✅ habilita solo tu frontend local
+app.use(cors({ origin: 'http://localhost:5174' })); // ✅ habilita solo tu frontend local
 app.use(express.json());
 
 
