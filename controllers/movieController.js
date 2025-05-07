@@ -71,10 +71,10 @@ export const getMovieById = async (req, res) => {
 // Editar una película
 export const updateMovie = async (req, res) => {
   const { id } = req.params;
-  const { title, description, category, releaseDate, ageRating } = req.body;
+  const { title, description, image, category, releaseDate, ageRating } = req.body;
 
   try {
-    const movie = await Movie.findByIdAndUpdate(id, { title, description, category, releaseDate, ageRating }, { new: true });
+    const movie = await Movie.findByIdAndUpdate(id, { title, description, image, category, releaseDate, ageRating }, { new: true });
     if (!movie) {
       return res.status(404).json({ message: 'Película no encontrada' });
     }
