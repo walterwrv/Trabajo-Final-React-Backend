@@ -31,7 +31,7 @@ export const getMoviesPaginado = async (req, res) => {
     
     const filters = {};
     if (title) filters.title = { $regex: title, $options: 'i' };
-    if (category) filters.category = category;
+    if (category) filters.category = { $regex: category, $options: 'i' };
     if (minAge) filters.ageRating = { $lte: parseInt(minAge) };
 
     const movies = await Movie.find(filters)
