@@ -13,8 +13,8 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['admin', 'owner', 'standard', 'kid'], // Dueño de cuenta, estándar, niño
-    default: 'standard',
+    enum: ['admin', 'owner', 'standard'], // Dueño de cuenta, estándar, niño
+    default: 'owner',
   },
 }, {
   timestamps: true
