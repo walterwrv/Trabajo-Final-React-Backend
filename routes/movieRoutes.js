@@ -9,7 +9,7 @@ const router = express.Router();
 // Rutas para el CRUD de movies
 // Rutas protegidas por token
 router.post('/create', verifyToken, checkRole(['admin']), createMovie);
-router.get('/', getMovies);
+router.get('/', verifyToken, getMovies);
 router.get('/paginado',verifyToken, getMoviesPaginado);
 router.get('/:id', getMovieById);
 router.put('/:id', verifyToken, checkRole(['admin']), updateMovie);
