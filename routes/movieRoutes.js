@@ -10,7 +10,7 @@ const router = express.Router();
 // Rutas protegidas por token
 router.post('/create', verifyToken, checkRole(['admin']), createMovie);
 router.get('/', getMovies);
-router.get('/paginado', getMoviesPaginado);
+router.get('/paginado',verifyToken, getMoviesPaginado);
 router.get('/:id', getMovieById);
 router.put('/:id', verifyToken, checkRole(['admin']), updateMovie);
 router.delete('/:id', verifyToken, checkRole(['admin']), deleteMovie);
