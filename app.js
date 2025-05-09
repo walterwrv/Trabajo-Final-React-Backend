@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
   res.send('¡Bienvenido a Nodo Cine Backend! 🎬');
 });
 
-// Rutas reales vendrán después
+// Rutas reales
 app.use('/api/auth', authRoutes);
 app.use('/api/profiles', profileRoutes);  // Usamos las rutas de perfiles
 app.use('/api/movies', movieRoutes);  // Usamos las rutas de movies
