@@ -157,4 +157,23 @@ export const removeFromWatchlist = async (req, res) => {
   }
 };
 
+export const clearWatchlist = async (req, res) => {
+  try {
+    const { profileId } = req.params;
+
+    const profile = await Profile.findById(profileId);
+    if (!profile) {
+      return res.status(404).json({ message: 'Perfil no encontrado' });
+    }
+
+    profile.watchlist = []; // Vaciar la watchlist
+    await profile.save();
+
+    res.status(200).json({ message: 'Watchlist eliminada correctamente' });
+  } catch (error) {
+    console.error('Error al eliminar watchlist:', error);
+    res.status(500).json({ message: 'Error al eliminar watchlist', error });
+  }
+};
+
 
